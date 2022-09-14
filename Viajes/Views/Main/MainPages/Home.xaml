@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Main.MainPages.Home">
     <ContentPage.Content>
-        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lServices" ItemTapped="lServices_ItemTapped">
+        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lServices" ItemTapped="lServices_ItemTapped" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Frame Margin="10" BackgroundColor="Gray" HeightRequest="220" >
+                            <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220">
                                 <StackLayout >
-                                    <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand"/>
+                                    <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="150" VerticalOptions="Start"/>
                                     <StackLayout Orientation="Horizontal">
-                                        <Button x:Name="CreateOrChangeButton" Text="View More" TextColor="Black" HorizontalOptions="FillAndExpand"></Button>
+                                        
                                     </StackLayout>  
                                 </StackLayout>
                             </Frame>

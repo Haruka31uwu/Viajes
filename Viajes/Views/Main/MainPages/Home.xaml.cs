@@ -36,10 +36,10 @@ namespace Viajes.Views.Main.MainPages
         {
             var dataitem =(Services) e.Item;
             bool answer = await DisplayAlert("Informacion", "Desea ver mas informacion", "Yes", "No");
-            Debug.WriteLine(dataitem.Price);
+            
             if (answer == true)
             {
-                await Navigation.PushAsync(new ViewPage(dataitem.NameOfService, dataitem.Destination, dataitem.Data, dataitem.ImageName,dataitem.IdOfService,dataitem.Price.ToString()));
+                await Navigation.PushAsync(new ViewPage(dataitem));
             }
         }
     }

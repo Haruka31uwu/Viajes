@@ -31,7 +31,7 @@ namespace Viajes.Views.Main.MainPages
         private async void lservices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var dataitem = (Services)e.Item;
-            await Navigation.PushAsync(new ViewPage(dataitem.NameOfService, dataitem.Destination, dataitem.Data, dataitem.ImageName,dataitem.IdOfService,dataitem.Price.ToString()));
+            await Navigation.PushAsync(new ViewPage(dataitem));
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
