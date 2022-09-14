@@ -35,7 +35,8 @@ namespace Viajes.ViewModels
                     Data=item.Object.Data,
                     ImageName=item.Object.ImageName,
                     Priority=item.Object.Priority,
-                    DestinationCategory=item.Object.DestinationCategory
+                    DestinationCategory=item.Object.DestinationCategory,
+                    Price=item.Object.Price
              }).ToList();
         }public async Task<List<Services>> GetServiceForCat(string cat)
         {
@@ -60,7 +61,8 @@ namespace Viajes.ViewModels
                 Data = item.Object.Data,
                 ImageName = item.Object.ImageName,
                 Priority = item.Object.Priority,
-                DestinationCategory=item.Object.DestinationCategory
+                DestinationCategory=item.Object.DestinationCategory,
+                Price = item.Object.Price
             }).ToList();
         }
         public async Task AddService(string nof,string des,string dta,string imgname,string dc)
@@ -77,6 +79,7 @@ namespace Viajes.ViewModels
                 ImageName = imgname,
                 Priority = 0.ToString(),
                 DestinationCategory=dc
+              
             };
             
             

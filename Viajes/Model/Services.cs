@@ -13,5 +13,6 @@ namespace Viajes.Model
         public string Priority { get; set; }
         public string ImageName { get; set; }
         public string DestinationCategory { get; set; }
+        public int Price { get; set; }
     }
 }

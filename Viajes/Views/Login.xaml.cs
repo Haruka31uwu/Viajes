@@ -39,7 +39,7 @@ namespace Viajes.Views
                         var u =  _user.GetUser(token);
                         Debug.WriteLine(u);
 
-                       await Navigation.PushModalAsync(new Views.Main.MainPage(u));
+                       await Navigation.PushModalAsync(new Views.Main.MainPage());
                     }
                     else
                     {

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.RegisterUser"
             Visual="Material">
-//Este es un cambio hecho por mi
     <StackLayout Orientation="Vertical" Margin="20" VerticalOptions="Center" >
         <Entry Placeholder="Email" x:Name="txtemail"/>
         <Entry Placeholder="Password" x:Name="txtpass" />

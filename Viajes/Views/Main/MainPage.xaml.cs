@@ -14,7 +14,7 @@ namespace Viajes.Views.Main
     public partial class MainPage : FlyoutPage
     {
         public string u="xd";
-        public MainPage(string u)
+        public MainPage()
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;

@@ -8,11 +8,9 @@
             <Image x:Name="img" HeightRequest="300"/>
             <Label x:Name="sn" HorizontalOptions="Center"/>
             <Label x:Name="des" HorizontalOptions="Center"/>
-            <Label x:Name="dt" HorizontalOptions="Center">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked"/>
-                </Label.GestureRecognizers>
-            </Label>
+            <Label x:Name="dt" HorizontalOptions="Center"/>
+            <Button Text="Añadir al Carrito" Clicked="Button_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
