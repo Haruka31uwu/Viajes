@@ -19,7 +19,7 @@ namespace Viajes.Views.Main.MainPages
             InitializeComponent();
             sr = new ServicesRepository();
             BindingContext = sr;
-            new Action(async () =>
+                new Action(async () =>
             {
                 lServices.ItemsSource = await lista();
             }).Invoke();
