@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.Admin_Views.AddService">
+    <ContentPage.Content>
+
+        <StackLayout Margin="40" VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <Image HeightRequest="200"  x:Name="imgChoosed"/>
+            <Button Text="Pick" Clicked="Button_Clicked" />
+            </StackLayout>
+            <Entry Placeholder="NameofService" x:Name="ns"/>
+            <Entry Placeholder="Destination" x:Name="ds"/>
+            <Entry Placeholder="DataofService" x:Name="das"/>
+            <Picker x:Name="dc" Title="Categoria">
+                <Picker.Items>
+                    <x:String>America del Sur</x:String>
+                    <x:String>America del Norte</x:String>
+                </Picker.Items>
+            </Picker>
+                <Button Text="AddService" HorizontalOptions="Center" Clicked="Button_Clicked_1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

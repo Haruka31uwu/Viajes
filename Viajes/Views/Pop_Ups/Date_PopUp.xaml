@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xct:Popup  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:pop_ups="clr-namespace:Viajes.Views.Pop_Ups" x:DataType="pop_ups:Date_PopUp"
+            x:Class="Viajes.Views.Pop_Ups.Date_PopUp">
+    <StackLayout HeightRequest="200">
+        <DatePicker MinimumDate="08/01/2022"
+            MaximumDate="09/01/2099"
+            Date="06/21/2022" />
+    </StackLayout>
+</xct:Popup>

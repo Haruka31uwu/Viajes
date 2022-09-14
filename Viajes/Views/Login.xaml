@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.Login">
+    <StackLayout
+        VerticalOptions="Center"
+        Margin="40"
+        Orientation="Vertical">
+        <Label Text="Email"/>
+        <Entry Placeholder="Email" x:Name="txtemail"/>
+        <Label Text="Password"/>
+        <Entry Placeholder="Password" x:Name="txtpass"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Ingresar" Clicked="Button_Clicked"/>
+            <Image Source="google.png" WidthRequest="30" HeightRequest="30" Margin="10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        
+    </StackLayout>
+   
+</ContentPage>

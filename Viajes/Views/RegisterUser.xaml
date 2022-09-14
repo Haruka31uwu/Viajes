@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.RegisterUser"
+            >
+    <StackLayout Orientation="Vertical" Margin="20" >
+        <Label Text="Email"/>
+        <Entry Placeholder="Email" x:Name="txtemail"/>
+        <Label Text="Password"/>
+        <Entry Placeholder="Password" x:Name="txtpass" />
+        <Button Text="Registrar" Clicked="Button_Clicked" />
+    </StackLayout>
+</ContentPage>

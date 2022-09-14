@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.Main.MainPageFlyout"
+             xmlns:local="clr-namespace:Viajes.Views.Main" 
+             Title="Flyout">
+  <StackLayout>
+    <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+             
+              ItemsSource="{Binding MenuItems}">
+
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="#03A9F4" BindingContext="{}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <Label
+              Grid.Column="1"
+              Grid.Row="2"
+              x:Name="title"
+              Style="{DynamicResource SubtitleStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+           <Frame BorderColor="Black">
+                            <StackLayout  HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                                <Label VerticalOptions="Center" VerticalTextAlignment="Center" Text="{Binding Title}"  FontSize="24" Margin="5"/>
+                                <Image Source="{Binding Source}" HeightRequest="20" WidthRequest="20"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.Main.MainPages.Search">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="400"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.ColumnSpan="3" BorderColor="Black" Grid.Row="0" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="buscar.png" Grid.Column="0" WidthRequest="20">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Entry Grid.Column="1" HorizontalOptions="FillAndExpand" x:Name="es"/>
+                        <Image Source="cart" Grid.Column="2" WidthRequest="20"/>
+                    </StackLayout>
+
+                </Frame>
+                <Frame Grid.Row="1"  Grid.ColumnSpan="3" HeightRequest="400">
+                    <ListView x:Name="lservices" ItemTapped="lservices_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Black">
+                                        <StackLayout>
+                                            <Label Text="{Binding NameOfService}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+                <Frame Grid.Row="2" Grid.ColumnSpan="3">
+                    <ListView x:Name="lcategory" ItemTapped="lcategory_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Black">
+                                        <StackLayout>
+                                            <Label Text="{Binding DestinationCategory}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
