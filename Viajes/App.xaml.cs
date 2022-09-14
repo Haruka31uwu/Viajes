@@ -13,7 +13,7 @@ namespace Viajes
         {
             InitializeComponent();
 
-            MainPage = new AddService();
+            MainPage = new RegisterUser();
         }
         protected override void OnStart()
         {
