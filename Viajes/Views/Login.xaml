@@ -6,7 +6,7 @@
         VerticalOptions="Center"
         Margin="40"
         Orientation="Vertical">
-        <Label Text="Emailxd"/>
+        <Label Text="Email"/>
         <Entry Placeholder="Email" x:Name="txtemail"/>
         <Label Text="Password"/>
         <Entry Placeholder="Password" x:Name="txtpass"/>
