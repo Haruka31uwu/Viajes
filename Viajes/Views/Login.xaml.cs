@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Viajes.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+//ya manito
 namespace Viajes.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
