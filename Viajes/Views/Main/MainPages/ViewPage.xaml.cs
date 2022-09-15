@@ -27,13 +27,7 @@ namespace Viajes.Views.Main.MainPages
             InitializeComponent();
             serv = s;
             Debug.WriteLine(serv);
-            car = new CarViewModel();
-            Debug.WriteLine("1");
-            
-            Debug.WriteLine("2");
-            new Action(async () => await regCar() ).Invoke();
-            Debug.WriteLine("3");
-           
+            car = new CarViewModel();       
             //lserv = buycar.ServiceList;
             //lserv.Add(s);
             /*new Action(async () => lserv = await car.GetCarForId("1")).Invoke();
@@ -54,7 +48,6 @@ namespace Viajes.Views.Main.MainPages
                 tp += l.Price;
             }
            */
-
             name = s.NameOfService;
             img.Source = s.ImageName;
             sn.Text = name;
@@ -71,10 +64,7 @@ namespace Viajes.Views.Main.MainPages
             {
                 lserv = buycar.ServiceList;
                 lserv.Add(serv);
-               
-
-                await car.UpdateRow(lserv, "1",precio(lserv));
-              
+                await car.UpdateRow(lserv, "1",precio(lserv));   
             }
             else
             {
@@ -108,18 +98,9 @@ namespace Viajes.Views.Main.MainPages
                 try
                 {
                     Debug.WriteLine(tp);
-                    await car.UpdateRow(lserv, "1", tp);
-
-                    //bc.PriceCar = float.Parse(Price);
-                    /*var isSaved = await car.Save(buycar);
-                    if (isSaved)
-                    {
-                        Debug.WriteLine("Funciono uwu");
-                    }
-                }catch(Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }*/
+                    await regCar();
+                    await DisplayAlert("Exito", "Se Añadio al carrito con Exito", "Ok");
+                    Navigation.PushModalAsync(new Views.Main.MainPage());
                 }
                 catch (Exception ex)
                 {
