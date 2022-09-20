@@ -2,34 +2,78 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Login"
-             Visual="Material">
+             Visual="Material"
+             Title="                     "     
+             BackgroundImageSource="marcoviaje">
     <!--Probando todosss-->
 
-    <StackLayout
-        VerticalOptions="Center"
-        Margin="40"
-        Orientation="Vertical">
-        <Label Text="Email"/>
-        <Entry Placeholder="Email" x:Name="txtemail"/>
-        <Label Text="Password"/>
-        <Entry Placeholder="Password" x:Name="txtpass"/>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button Text="Ingresar" Clicked="Button_Clicked"/>
-            <Image Source="google.png" WidthRequest="30" HeightRequest="30" Margin="10">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-           
+    <ContentPage.Content>
+        <StackLayout Padding="10" 
+                     Margin="40">
+
+            <Label Text="TRAVELING - VIAJES"
+                   TextColor="Black"
+                   FontSize="25"
+                   FontFamily="timesbd"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"></Label>
+            
+            <Image Source="dibujotravel" Margin="40"
+               HeightRequest="150"
+               WidthRequest="150"/>
+
+            <Label Text="Email: "
+               FontSize="25"
+               FontFamily="timesbd"
+               TextColor="Black"/>
+
+            <Entry x:Name="txtemail"
+               BackgroundColor="white"/>
+
+            <Label Text="Password: "
+               FontSize="25"
+               FontFamily="timesbd"
+               TextColor="Black"/>
+
+            <Entry x:Name="txtpass"
+               BackgroundColor="white"
+               />
+      
+    
+    
+    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Ingresar" Clicked="Button_Clicked"
+                    BorderColor="Black"
+                    BorderWidth="5"
+                    FontFamily="timesbd" 
+                    FontSize="25"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    />
+                <Image Source="google.png" WidthRequest="30" HeightRequest="30" Margin="10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+            </StackLayout>
+
+
+    <StackLayout>
+        <Label x:name="tl" Text="Todavia no estas registrado?" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"
+                   FontFamily="timesbd"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                    TextColor="DarkRed"
+                   >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+            </Label.GestureRecognizers>
+        </Label>
+                </StackLayout>
         </StackLayout>
-        <StackLayout>
-            <Label x:name="tl" Text="Todavia no esta registrado?" HorizontalOptions="Center" TextDecorations="Underline">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
-        
-    </StackLayout>
-   
+    </ContentPage.Content>
+
 </ContentPage>
