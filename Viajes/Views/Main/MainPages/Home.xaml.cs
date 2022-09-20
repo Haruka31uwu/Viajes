@@ -30,8 +30,7 @@ namespace Viajes.Views.Main.MainPages
         }
         public async Task<IEnumerable<Services>> lista()
         {
-            return await sr.GetallServices();
-          
+            return await sr.GetallServices();        
         }
 
         private async void lServices_ItemTapped(object sender, ItemTappedEventArgs e)

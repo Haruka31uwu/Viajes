@@ -16,12 +16,12 @@ namespace Viajes.Views.Main.MainPages
 
     public partial class ViewPage : ContentPage
     {
-        
+
         public string id, Price, name;
         CarViewModel car;
         List<Services> lserv;
         public Services serv;
-        public BuyCar buycar;
+        public Model.BuyCar buycar;
         public int tp;
         public Users _u;
         public ViewPage(Services s,Users u)
@@ -69,20 +69,22 @@ namespace Viajes.Views.Main.MainPages
             {
                 Debug.WriteLine("owo");
                 lserv = buycar.ServiceList;
-                lserv.Add(serv);
+                lserv?.Add(serv);
                 await car.UpdateRow(lserv,_u.Id,precio(lserv));   
             }
             else
             {
                 Debug.WriteLine("uwu");
+                lserv = new List<Services>();
                 lserv.Add(serv);
-                buycar = new BuyCar()
+                Model.BuyCar buycar1 = new Model.BuyCar()
                 {
                     idOfUser = _u.Id,
-                    ServiceList = lserv,
+                    ServiceList =lserv,
                     PriceCar = serv.Price,
                 };
-                await car.Save(buycar);
+                Debug.WriteLine(buycar1.idOfUser);
+                await car.Save(buycar1);
             }
         }public int precio(List<Services> li)
         {

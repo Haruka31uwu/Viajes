@@ -8,4 +8,5 @@
         <Entry Placeholder="Password" x:Name="txtpass" />
         <Button Text="Registrar" Clicked="Button_Clicked" />
     </StackLayout>
+    
 </ContentPage>

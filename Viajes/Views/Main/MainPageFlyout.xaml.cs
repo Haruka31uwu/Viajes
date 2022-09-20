@@ -38,6 +38,7 @@ namespace Viajes.Views.Main
                 {
                     new MainPageFlyoutMenuItem{ Id = 0, Title = "Destacados",TargetType = typeof(Home),Source = "home.png"},
                     new MainPageFlyoutMenuItem{ Id = 1, Title = "Buscar",TargetType = typeof(Search),Source = "buscar.png"},
+                    new MainPageFlyoutMenuItem{Id=2,Title="Carrito",TargetType=typeof(BuyCar),Source="cart.png"}
                    
                 });
                 

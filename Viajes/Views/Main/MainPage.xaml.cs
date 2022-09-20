@@ -20,9 +20,7 @@ namespace Viajes.Views.Main
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
             _u = u;
-            Detail = new NavigationPage(new MainPageDetail(_u));
-            
-            
+            Detail = new NavigationPage(new MainPageDetail(_u));       
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
