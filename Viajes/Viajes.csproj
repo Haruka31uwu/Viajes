@@ -17,6 +17,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NewResource\fonts\font1.otf" />
+    <None Remove="NewResource\fonts\penultimate.ttf" />
+    <None Remove="NewResource\fonts\timesbd.ttf" />
+    <None Remove="Resource\Font\font1.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Resource\Font\font1.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="NewResource\fonts\font1.otf" />
+    <EmbeddedResource Include="NewResource\fonts\penultimate.ttf" />
+    <EmbeddedResource Include="NewResource\fonts\timesbd.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
