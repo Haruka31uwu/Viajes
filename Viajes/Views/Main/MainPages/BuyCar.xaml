@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viajes.Views.Main.MainPages.BuyCar">
+    <ContentPage.Content>
+        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lCar" ItemTapped="lServices_ItemTapped"  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220">
+                                <StackLayout >
+                                    <Label Text="{Binding Data}"/>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

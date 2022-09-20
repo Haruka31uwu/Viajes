@@ -1,8 +1,10 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
+using MvvmHelpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -12,12 +14,24 @@ using Viajes.Model;
 namespace Viajes.ViewModels
 {
  
-    public class CarViewModel
+    public class CarViewModel:BaseViewModel
 
     {
-        
-
-        FirebaseClient f = new FirebaseClient("https://travels-a5c41-default-rtdb.firebaseio.com/");
+        public string idOfUser { get; set; }
+        public List<Services> ServiceList { get; set; }
+       
+        public float PriceCar { get; set; }
+        public ObservableCollection<BuyCar> _bc = new ObservableCollection<BuyCar>();
+        public ObservableCollection<BuyCar> services
+        {
+            get { return _bc; }
+            set
+            {
+                _bc = value;
+                OnPropertyChanged();
+            }
+        }
+            FirebaseClient f = new FirebaseClient("https://travels-a5c41-default-rtdb.firebaseio.com/");
         public async Task<bool> Save(BuyCar b)
         {
             var data = await f.Child(nameof(BuyCar)).PostAsync(JsonConvert.SerializeObject(b));
@@ -39,11 +53,19 @@ namespace Viajes.ViewModels
 
              }).ToList();
         }
-        public async Task<BuyCar> GetCarForId(string id)
+        public async Task<BuyCar?> GetCarForId(string id)
         {
             var allp = await GetallCar();
             await f.Child("BuyCar").OnceAsync<BuyCar>();
-            return allp.Where(a => a.idOfUser.Equals(id)).First();
+            var l= allp.FirstOrDefault(a => a.idOfUser.Equals(id));
+            if (l==null)
+            {
+                return null;
+            }
+            else
+            {
+                return l;
+            }
         }public async Task UpdateRow(List<Model.Services> bc,string id,int price)
         {
                var update = (await f.Child("BuyCar").OnceAsync<BuyCar>()).Where(a => a.Object.idOfUser == id).FirstOrDefault();
