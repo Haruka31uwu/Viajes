@@ -26,17 +26,32 @@ namespace Viajes.Views.Main.MainPages
                 lCar.ItemsSource = await lista();
             }).Invoke();
         }
-        public async Task<IEnumerable<Services?>> lista()
+        public async Task<IEnumerable<Services>?> lista()
+         {
+             try
+             {
+               Model.BuyCar? bc=await cv.GetCarForId(_u.Id);
+                l = bc?.ServiceList;
+                
+
+                 return l;
+             }catch(Exception ex)
+             {
+                 await DisplayAlert("Error", ex.Message, "OK");
+                 return null;
+             }
+
+
+            
+
+    }
+
+    private void lServices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
 
-            l = new List<Model.Services>();
-            //l= cv.GetCarForId(_u.Id).Result.ServiceList;
-            return l;
-            
-           
         }
 
-        private void lServices_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
 
         }

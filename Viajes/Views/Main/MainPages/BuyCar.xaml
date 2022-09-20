@@ -12,7 +12,7 @@
                                 <StackLayout >
                                     <Label Text="{Binding Data}"/>
                                     <StackLayout Orientation="Horizontal">
-
+                                        <Button Text="Borrar" Clicked="Button_Clicked"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
