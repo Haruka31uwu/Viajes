@@ -14,7 +14,7 @@ namespace Viajes
             InitializeComponent();
 
             MainPage = new NavigationPage(new Login());
-            //MainPage = new Views.Main.MainPage();
+            //MainPage = new MainPage();
         }
         protected override void OnStart()
         {
