@@ -6,11 +6,5 @@
   <FlyoutPage.Flyout>
     <pages:MainPageFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
-  <FlyoutPage.Detail>
-    <NavigationPage>
-      <x:Arguments>
-        <pages:MainPageDetail/>
-      </x:Arguments>
-    </NavigationPage>
-  </FlyoutPage.Detail>  
+  
 </FlyoutPage>

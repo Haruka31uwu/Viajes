@@ -99,9 +99,6 @@ namespace Viajes.ViewModels
             AddServiceCommand = new Command(async () => await AddService(NameOfService, Destination, Data, ImageName, DestinationCategory));
         }
 
-        public static implicit operator List<object>(ServicesRepository v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

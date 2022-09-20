@@ -35,15 +35,19 @@ namespace Viajes.Views
             }
             else {
                 Users u = new Users();
-                u.Email = email;
+                u.Email = email.ToLower();
                 u.Password = pass;
+                u.Id = (await  rep.GetcountUsers() + 1).ToString(); 
                 
                 try
                 {
-                    var isSaved = await rep.Save(u);
+                    var isSaved =
+                         await rep.Register(email, pass); 
                     if (isSaved)
-                    { 
-                        await rep.Register(email, pass);
+                    {
+                        Debug.WriteLine(isSaved);
+
+                        await rep.Save(u);
                         await Navigation.PushAsync(new Login());
 
                     }

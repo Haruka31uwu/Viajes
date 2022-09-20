@@ -14,7 +14,7 @@ namespace Viajes.Views.Main.MainPages
     public partial class SearchPage : ContentPage
     {
         ServicesRepository _sr;
-        public SearchPage(Task<List<Services>> sr)
+        public SearchPage(Task<List<Services>> sr,Users u)
         {
             InitializeComponent();
             _sr=new ServicesRepository();

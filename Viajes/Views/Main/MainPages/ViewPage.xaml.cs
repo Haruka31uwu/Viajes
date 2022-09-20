@@ -16,17 +16,21 @@ namespace Viajes.Views.Main.MainPages
 
     public partial class ViewPage : ContentPage
     {
+        
         public string id, Price, name;
         CarViewModel car;
         List<Services> lserv;
         public Services serv;
         public BuyCar buycar;
         public int tp;
-        public ViewPage(Services s)
+        public Users _u;
+        public ViewPage(Services s,Users u)
         {
+            
             InitializeComponent();
+            _u = u;
             serv = s;
-            Debug.WriteLine(serv);
+            //Debug.WriteLine(serv);
             car = new CarViewModel();       
             //lserv = buycar.ServiceList;
             //lserv.Add(s);
@@ -55,23 +59,26 @@ namespace Viajes.Views.Main.MainPages
             dt.Text = s.Data;
             id = s.IdOfService;
             Price = s.Price.ToString();
+           
 
         }public async Task regCar()
         {
-           
-            buycar = await car.GetCarForId("1");
+            Debug.WriteLine(_u.Id);
+            buycar = await car.GetCarForId(_u.Id);
             if (buycar!=null)
             {
+                Debug.WriteLine("owo");
                 lserv = buycar.ServiceList;
                 lserv.Add(serv);
-                await car.UpdateRow(lserv, "1",precio(lserv));   
+                await car.UpdateRow(lserv,_u.Id,precio(lserv));   
             }
             else
             {
+                Debug.WriteLine("uwu");
                 lserv.Add(serv);
                 buycar = new BuyCar()
                 {
-                    idOfUser = 1.ToString(),
+                    idOfUser = _u.Id,
                     ServiceList = lserv,
                     PriceCar = serv.Price,
                 };
@@ -100,7 +107,7 @@ namespace Viajes.Views.Main.MainPages
                     Debug.WriteLine(tp);
                     await regCar();
                     await DisplayAlert("Exito", "Se Añadio al carrito con Exito", "Ok");
-                    Navigation.PushModalAsync(new Views.Main.MainPage());
+                    await Navigation.PushModalAsync(new Views.Main.MainPage(_u));
                 }
                 catch (Exception ex)
                 {

@@ -36,10 +36,9 @@ namespace Viajes.Views
                     string token = await _user.SignIn(email, password);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var u =  _user.GetUser(token);
-                        Debug.WriteLine(u);
-
-                       await Navigation.PushModalAsync(new Views.Main.MainPage());
+                        var u =await _user.UserLogedData(email);
+                        Debug.WriteLine(u.Email);
+                       await Navigation.PushModalAsync(new Views.Main.MainPage(u));
                     }
                     else
                     {

@@ -4,6 +4,6 @@
              x:Class="Viajes.Views.Main.MainPageDetail"
              Title="Bienvenido">
   <StackLayout Padding="10">
-        
-  </StackLayout>
+        <Label Text="" x:Name="lbl"/>
+    </StackLayout>
 </ContentPage>

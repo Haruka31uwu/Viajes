@@ -14,9 +14,11 @@ namespace Viajes.Views.Main.MainPages
     public partial class Search : ContentPage
     {
          ServicesRepository sr;
-        public Search()
+        Users _u;
+        public Search(Users u)
         {
             InitializeComponent();
+            _u = u;
             sr = new ServicesRepository();
             BindingContext = sr;
             new Action(async () => lservices.ItemsSource = await GetSfpriori()).Invoke();
@@ -31,7 +33,7 @@ namespace Viajes.Views.Main.MainPages
         private async void lservices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var dataitem = (Services)e.Item;
-            await Navigation.PushAsync(new ViewPage(dataitem));
+            await Navigation.PushAsync(new ViewPage(dataitem,_u));
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace Viajes.Views.Main.MainPages
             {
                 var dataitem = sr.GetServiceForName(es.Text.ToString());
                 es.Text = "";
-                Navigation.PushAsync(new SearchPage(dataitem));
+                Navigation.PushAsync(new SearchPage(dataitem,_u));
                 
             }
         }
@@ -49,7 +51,7 @@ namespace Viajes.Views.Main.MainPages
         {
             var cat=(Services)e.Item;
             var dataitem = sr.GetServiceForCat(cat.DestinationCategory);
-            Navigation.PushAsync(new SearchPage(dataitem));
+            Navigation.PushAsync(new SearchPage(dataitem,_u));
         }
     }
 }

@@ -14,9 +14,11 @@ namespace Viajes.Views.Main.MainPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
+        public Users _u;
         ServicesRepository sr;
-        public Home()
+        public Home(Users u)
         {
+            _u = u;
             InitializeComponent();
             sr = new ServicesRepository();
             BindingContext = sr;
@@ -39,7 +41,7 @@ namespace Viajes.Views.Main.MainPages
             
             if (answer == true)
             {
-                await Navigation.PushAsync(new ViewPage(dataitem));
+                await Navigation.PushAsync(new ViewPage(dataitem,_u));
             }
         }
     }
