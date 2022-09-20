@@ -30,7 +30,7 @@ namespace Viajes.Views.Main.MainPages
         {
 
             l = new List<Model.Services>();
-            l= cv.GetCarForId(_u.Id).Result.ServiceList;
+            //l= cv.GetCarForId(_u.Id).Result.ServiceList;
             return l;
             
            
