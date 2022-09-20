@@ -2,11 +2,90 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.RegisterUser"
-            Visual="Material">
-    <StackLayout Orientation="Vertical" Margin="20" VerticalOptions="Center" >
-        <Entry Placeholder="Email" x:Name="txtemail"/>
-        <Entry Placeholder="Password" x:Name="txtpass" />
-        <Button Text="Registrar" Clicked="Button_Clicked" />
-    </StackLayout>
+            Visual="Material"
+             BackgroundImageSource="marcoviaje">
+
+    <ContentPage.Content>
+        <StackLayout Padding="3" Margin="15">
+
+            <Label Text="TRAVELING - VIAJE"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="30"
+                   FontFamily="timesbd"
+                   TextColor="Black"
+                   FontAttributes="Bold"/>
+
+            <Image Source="dibujotravel" Margin="20"
+               HeightRequest="150"
+               WidthRequest="150"/>
+
+            <Label Text="Email: " 
+                   FontFamily="timesbd"
+                   FontSize="20"
+                   TextColor="Black"/>
+            <Entry x:Name="txtemail"
+                   BackgroundColor="AliceBlue"/>
+
+            <Label Text="Password:"
+                   FontFamily="timesbd"
+                   FontSize="20"
+                   TextColor="Black"/>
+
+            <Entry x:Name="txtpass" 
+                   BackgroundColor="AliceBlue"/>
+            
+             <Button Text="Registrar" Clicked="Button_Clicked" 
+                FontFamily="timesbd" Margin="10"
+                FontSize="22"/>
+            
+            <Label Text="Siguenos en nuestras redes sociales"
+                   FontFamily="timesbd"
+                   FontSize="17"
+                   HorizontalOptions="CenterAndExpand"/>
+            
+            <StackLayout Padding="5" Orientation="Horizontal">
+                <Image Source="facebook"
+               WidthRequest="100" HeightRequest="40"
+               HorizontalOptions="EndAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+
+                <Label Text="facebook.com/traveling.viajes/"
+               HorizontalOptions="StartAndExpand"
+               VerticalOptions="CenterAndExpand"
+                       TextColor="Black"
+               />
+            </StackLayout>
+
+            <StackLayout Padding="5" Orientation="Horizontal">
+                <Image Source="instagram"
+               WidthRequest="100" HeightRequest="40"
+               HorizontalOptions="EndAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+
+                <Label Text="@travelingviajes                             "
+                       TextColor="Black"
+               HorizontalOptions="StartAndExpand"
+               VerticalOptions="CenterAndExpand"
+               />
+            </StackLayout>
+
+            <StackLayout Padding="5" Orientation="Horizontal">
+                <Image Source="twitter"
+               WidthRequest="100" HeightRequest="40"
+               HorizontalOptions="EndAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+
+                <Label Text="@twitter.com/travelingviajes        "
+                       TextColor="Black"
+               HorizontalOptions="StartAndExpand"
+               VerticalOptions="CenterAndExpand"
+               />
+            </StackLayout>
+
+        </StackLayout>
+
+        
+    </ContentPage.Content>
+    
     
 </ContentPage>
