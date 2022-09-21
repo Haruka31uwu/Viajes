@@ -23,6 +23,7 @@
                    FontFamily="timesbd"
                    FontSize="20"
                    TextColor="Black"/>
+            
             <Entry x:Name="txtemail"
                    BackgroundColor="AliceBlue"/>
 
