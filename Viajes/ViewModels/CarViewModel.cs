@@ -57,7 +57,7 @@ namespace Viajes.ViewModels
         public async Task<BuyCar?> GetCarForId(string id)
         {
             var allp = await GetallCar();
-            await f.Child("BuyCar").OnceAsync<BuyCar>();
+            await f.Child("BuyCar").OnceAsync<BuyCar>();    
             var l= allp.FirstOrDefault(a => a.idOfUser.Equals(id));
             if (l==null)
             {
@@ -77,5 +77,29 @@ namespace Viajes.ViewModels
             
 
         }
+        public async Task<bool> DeleteFromCar(int? index,string uid)
+        {
+            BuyCar? todeleteservice = (await GetCarForId(uid));
+            for(int i = 0; i < todeleteservice?.ServiceList.Count; i++)
+            {
+                if (i ==index)
+                {
+                    List <Services>? s= todeleteservice.ServiceList;
+                    todeleteservice.PriceCar = todeleteservice.PriceCar - s[i].Price;
+                    float price = todeleteservice.PriceCar;
+                    s.RemoveAt(i);
+                    await UpdateRow(s, uid, (int)price);
+                    return true;
+                }
+
+                
+            }
+            return false;
+
+        }
+        }
+    
+
+    
     }
-}
+

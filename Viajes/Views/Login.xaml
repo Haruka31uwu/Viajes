@@ -9,7 +9,7 @@
 
     <ContentPage.Content>
         <StackLayout Padding="10" 
-                     Margin="40">
+                     Margin="10">
 
             <Label Text="TRAVELING - VIAJES"
                    TextColor="Black"
@@ -62,7 +62,7 @@
 
 
     <StackLayout>
-        <Label x:name="tl" Text="Todavia no estas registrado?" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"
+        <Label x:Name="uu" Text="Todavia no estas registrado?" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"
                    FontFamily="timesbd"
                    FontAttributes="Bold"
                    FontSize="20"
