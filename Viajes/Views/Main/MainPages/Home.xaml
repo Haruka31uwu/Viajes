@@ -13,7 +13,7 @@
                                 <StackLayout >
                                     <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="150" VerticalOptions="Start"/>
                                     <StackLayout Orientation="Horizontal">
-                                        
+                                    
                                     </StackLayout>  
                                 </StackLayout>
                             </Frame>

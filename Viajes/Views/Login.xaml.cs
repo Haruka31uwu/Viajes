@@ -23,8 +23,12 @@ namespace Viajes.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            
             string email = txtemail.Text;
             string password = txtpass.Text;
+
+            
+
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 await DisplayAlert("Error", "Rellene bien los campos porfavor", "Ok");

@@ -9,7 +9,7 @@
 
     <ContentPage.Content>
         <StackLayout Padding="10" 
-                     Margin="40">
+                     Margin="10">
 
             <Label Text="TRAVELING - VIAJES"
                    TextColor="Black"

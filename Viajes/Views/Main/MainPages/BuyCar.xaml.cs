@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ namespace Viajes.Views.Main.MainPages
     {
         public CarViewModel cv;
         public Users _u;
-        List<Model.Services>? l;
+        List<Model.Services>? ls;
+        Model.BuyCar car;
         public BuyCar(Users u)
         {
             InitializeComponent();
@@ -26,19 +28,65 @@ namespace Viajes.Views.Main.MainPages
                 lCar.ItemsSource = await lista();
             }).Invoke();
         }
-        public async Task<IEnumerable<Services?>> lista()
-        {
+        public async Task<IEnumerable<Services>?> lista()
+         {
+             try
+             {
+               Model.BuyCar? bc=await cv.GetCarForId(_u.Id);
+                ls = bc?.ServiceList;
+                
 
-            l = new List<Model.Services>();
-            //l= cv.GetCarForId(_u.Id).Result.ServiceList;
-            return l;
+                 return ls;
+             }catch(Exception ex)
+             {
+                 await DisplayAlert("Error", ex.Message, "OK");
+                 return null;
+             }
+
+
             
-           
-        }
 
-        private void lServices_ItemTapped(object sender, ItemTappedEventArgs e)
+    }
+
+    private async void lServices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            bool ok = await DisplayAlert("Que Desea hacer?","Desea quitar del carrito o proceder con el pago?", "Comprar", "Borrar");
+            if (!ok)
+            {
+                car = await cv.GetCarForId(_u.Id);
+                if (car != null)
+                {
+                    int? index = null;
+                    for (int i = 0; i < car?.ServiceList.Count; i++)
+                    {
+                        var data = (Services)e.Item;
+                        if (car?.ServiceList[i].IdOfService == data.IdOfService)
+                        {
+                            //Debug.WriteLine("Exito");
+                            index = i;
+                        }
+                        else
+                        {
+                            //Debug.WriteLine("Fallo");
+                        }
+                        i++;
+
+                    }
+                    if (index != null)
+                    {
+                        await cv.DeleteFromCar(index, _u.Id);
+                        await DisplayAlert("Exito", "Borrado con exito", "Ok");
+                    }
+                }
+
+            }
+            else
+            {
+
+            }
 
         }
+
+        
     }
 }
