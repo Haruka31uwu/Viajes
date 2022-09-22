@@ -43,13 +43,6 @@ namespace Viajes.Views.Main.MainPages
                  return null;
              }
 
-
-<<<<<<< HEAD
-            l = new List<Model.Services>();
-            //l= cv.GetCarForId(_u.Id).Result.ServiceList;
-            return l;
-=======
->>>>>>> 3bc7327c06dbf273aaf9b17efa4b8d15e387e047
             
 
     }
