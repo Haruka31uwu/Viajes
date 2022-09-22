@@ -7,7 +7,7 @@
              BackgroundColor="AliceBlue"
              >
     <ContentPage.Content>
-        <StackLayout Margin="20">
+       
            <StackLayout Padding="35">
 
             
@@ -48,7 +48,7 @@
                     CornerRadius="20"
                     BackgroundColor="White"
                     Margin="5"
-                    X:Name="bt1"/>
+                    x:Name="bt1"/>
 
         </StackLayout>
     </ContentPage.Content>
