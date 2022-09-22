@@ -18,7 +18,7 @@ namespace Viajes.Views.Main
         public MainPageDetail(Users u)
         {
             InitializeComponent();
-            lbl.Text = u.Email;
+            lbl.Text = lbl.Text +u.Email;
         
             
         }

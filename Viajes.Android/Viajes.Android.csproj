@@ -67,6 +67,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -132,10 +133,14 @@
     <AndroidResource Include="Resources\drawable\twitter.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\marcopage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\marcoacuatico.png" />
+=======
+    <AndroidResource Include="Resources\drawable\SplashPresent.xml" />
+>>>>>>> d83ce127103d288d2231e75650c1880d28100daf
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -17,10 +17,17 @@ namespace Viajes
         {
             InitializeComponent();
             ur = new UsersRepository();
+<<<<<<< HEAD
             new Action(async () => start()).Invoke();
 
         }
         public async void start()
+=======
+            new Action(async () => await start()).Invoke();
+
+        }
+        public async Task start()
+>>>>>>> d83ce127103d288d2231e75650c1880d28100daf
         {
 
             var u = await ur.UserLogedData("harukakasugano31@gmail.com");

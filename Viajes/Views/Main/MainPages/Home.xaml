@@ -29,7 +29,7 @@
                                            HorizontalOptions="CenterAndExpand"/>
                                     
                                     <StackLayout Orientation="Horizontal">
-                                        
+                                    
                                     </StackLayout>  
                                 </StackLayout>
                             </Frame>
