@@ -18,18 +18,22 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.ColumnSpan="3" BorderColor="Black" Grid.Row="0" BackgroundColor="White">
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="buscar.png" Grid.Column="0" WidthRequest="20">
+                        <Image Source="buscar.png" Grid.Column="0" WidthRequest="20" x:Name="search">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                             </Image.GestureRecognizers>
                         </Image>
                         <Entry Grid.Column="1" HorizontalOptions="FillAndExpand" x:Name="es"/>
-                        <Image Source="cart" Grid.Column="2" WidthRequest="20"/>
+                        <Image Source="cart" Grid.Column="2" WidthRequest="20" x:Name="car">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </StackLayout>
 
                 </Frame>
                 <Frame Grid.Row="1"  Grid.ColumnSpan="3" HeightRequest="400">
-                    <ListView x:Name="lservices" ItemTapped="lservices_ItemTapped">
+                    <ListView x:Name="lservices" ItemTapped="lservices_ItemTapped" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -44,7 +48,7 @@
                     </ListView>
                 </Frame>
                 <Frame Grid.Row="2" Grid.ColumnSpan="3">
-                    <ListView x:Name="lcategory" ItemTapped="lcategory_ItemTapped">
+                    <ListView x:Name="lcategory" ItemTapped="lcategory_ItemTapped" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

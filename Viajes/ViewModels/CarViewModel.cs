@@ -96,10 +96,14 @@ namespace Viajes.ViewModels
             }
             return false;
 
-        }
-        }
+        }public async Task DeleteCar()
+        {
+
+            var todeletecar = (await f.Child("BuyCar").OnceAsync<BuyCar>()).Where(a => a.Object.PriceCar == 0).FirstOrDefault();
+                await f.Child("BuyCar").Child(todeletecar.Key).DeleteAsync();       
+            }
+        }       }
     
 
     
-    }
-
+    

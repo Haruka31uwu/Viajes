@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Main.MainPages.ViewPage"
+             Title="Carrito"
+             BackgroundImageSource="marcoacuatico"
+             BackgroundColor="AliceBlue"
              >
     <ContentPage.Content>
         <StackLayout Margin="20">
@@ -9,7 +12,7 @@
             <Label x:Name="sn" HorizontalOptions="Center"/>
             <Label x:Name="des" HorizontalOptions="Center"/>
             <Label x:Name="dt" HorizontalOptions="Center"/>
-            <Button Text="Añadir al Carrito" Clicked="Button_Clicked"/>
+            <Button Text="Añadir al Carrito" Clicked="Button_Clicked" x:Name="bt1"/>
 
         </StackLayout>
     </ContentPage.Content>

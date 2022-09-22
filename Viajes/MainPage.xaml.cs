@@ -16,17 +16,11 @@ namespace Viajes
         public MainPage()
         {
             InitializeComponent();
-            ur = new UsersRepository();
-            new Action(async () => await start()).Invoke();
-
         }
-        public async Task start()
-        {
-
-            var u = await ur.UserLogedData("harukakasugano31@gmail.com");
-            await Navigation.PushModalAsync(new Views.Main.MainPage(u));
-        }
-
-
+        
+        
     }
-}
+} 
+
+
+    

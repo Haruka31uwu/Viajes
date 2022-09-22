@@ -63,28 +63,49 @@ namespace Viajes.Views.Main.MainPages
 
         }public async Task regCar()
         {
-            Debug.WriteLine(_u.Id);
+            
             buycar = await car.GetCarForId(_u.Id);
-            if (buycar!=null)
+            Debug.WriteLine(buycar?.ServiceList);
+            if (buycar == null)
             {
+
                 Debug.WriteLine("owo");
-                lserv = buycar.ServiceList;
-                lserv?.Add(serv);
-                await car.UpdateRow(lserv,_u.Id,precio(lserv));   
-            }
-            else
-            {
-                Debug.WriteLine("uwu");
                 lserv = new List<Services>();
                 lserv.Add(serv);
                 Model.BuyCar buycar1 = new Model.BuyCar()
                 {
                     idOfUser = _u.Id,
-                    ServiceList =lserv,
+                    ServiceList = lserv,
                     PriceCar = serv.Price,
                 };
-                Debug.WriteLine(buycar1.idOfUser);
+
                 await car.Save(buycar1);
+               ;
+            }
+            else if (buycar?.ServiceList == null && buycar != null)
+            {
+              
+                //buycar = await car.GetCarForId(_u.Id);
+                await car.DeleteCar();
+                //Debug.WriteLine("uwu");
+                lserv = new List<Services>();
+                lserv.Add(serv);
+                Debug.WriteLine("uwu");
+                Model.BuyCar buycar1 = new Model.BuyCar()
+                {
+                    idOfUser = _u.Id,
+                    ServiceList = lserv,
+                    PriceCar = serv.Price,
+                };
+
+                await car.Save(buycar1);
+                ;
+            }
+            else
+            {
+                lserv = buycar?.ServiceList;
+                lserv?.Add(serv);
+                await car.UpdateRow(lserv, _u.Id, precio(lserv));
             }
         }public int precio(List<Services> li)
         {
@@ -97,7 +118,15 @@ namespace Viajes.Views.Main.MainPages
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
+            
         {
+            bt1.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+            {
+
+                bt1.IsEnabled = true;
+                return false;
+            });
             if (String.IsNullOrEmpty(id) || String.IsNullOrEmpty(Price) || String.IsNullOrEmpty(name))
             {
                 await DisplayAlert("Error", "No se pudo Agregar al carrito", "Ok");
@@ -106,7 +135,7 @@ namespace Viajes.Views.Main.MainPages
             {
                 try
                 {
-                    Debug.WriteLine(tp);
+                   
                     await regCar();
                     await DisplayAlert("Exito", "Se Añadio al carrito con Exito", "Ok");
                     await Navigation.PushModalAsync(new Views.Main.MainPage(_u));

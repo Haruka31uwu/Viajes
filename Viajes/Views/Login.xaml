@@ -33,16 +33,18 @@
             <Label Text="Password: "
                FontSize="25"
                FontFamily="timesbd"
-               TextColor="Black"/>
+               TextColor="Black"
+                   />
 
             <Entry x:Name="txtpass"
                BackgroundColor="white"
+                   IsPassword="True"
                />
       
     
     
     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Ingresar" Clicked="Button_Clicked"
+                <Button Text="Ingresar" Clicked="Button_Clicked" x:Name="bt1"
                     BorderColor="Black"
                     BorderWidth="5"
                     FontFamily="timesbd" 
@@ -56,7 +58,7 @@
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
                 </Image>
-
+                
 
             </StackLayout>
 

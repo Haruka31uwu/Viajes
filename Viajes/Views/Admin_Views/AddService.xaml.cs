@@ -20,7 +20,7 @@ namespace Viajes.Views.Admin_Views
         MediaFile file;
         ServicesRepository sr;
         FirebaseStorage fr;
-        public string Image;
+        public string Image;    
         
         public AddService()
         {
