@@ -3,18 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Main.MainPages.BuyCar">
     <ContentPage.Content>
-        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lCar" ItemTapped="lServices_ItemTapped"  HasUnevenRows="True">
+       <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lCar" ItemTapped="lServices_ItemTapped"  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
                             <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220">
-                                <StackLayout >
-                                    <Label Text="{Binding Data}"/>
-                                    <StackLayout Orientation="Horizontal">
-                                        
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical" Margin="40" >
+                                        <Label Text="{Binding NameOfService}" />
+                                        <Label Text="{Binding Destination}"/>
+                                        <Label Text="{Binding Data}"/>
+                                        <Label Text="{Binding Price}" TextDecorations="Underline" TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Image Source="{Binding ImageName}" WidthRequest="150" HeightRequest="150" VerticalOptions="Center" HorizontalOptions="Center"/>
                                     </StackLayout>
                                 </StackLayout>
+                            
                             </Frame>
                         </StackLayout>
                     </ViewCell>

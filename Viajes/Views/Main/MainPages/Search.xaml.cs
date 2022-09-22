@@ -32,12 +32,26 @@ namespace Viajes.Views.Main.MainPages
 
         private async void lservices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            lservices.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                lservices.IsEnabled = true;
+                return false;
+            });
             var dataitem = (Services)e.Item;
             await Navigation.PushAsync(new ViewPage(dataitem,_u));
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+            search.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                search.IsEnabled = true;
+                return false;
+            });
             if (!String.IsNullOrWhiteSpace(es.Text))
             {
                 var dataitem = sr.GetServiceForName(es.Text.ToString());
@@ -49,9 +63,28 @@ namespace Viajes.Views.Main.MainPages
 
         private void lcategory_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            lcategory.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                lcategory.IsEnabled = true;
+                return false;
+            });
             var cat=(Services)e.Item;
             var dataitem = sr.GetServiceForCat(cat.DestinationCategory);
             Navigation.PushAsync(new SearchPage(dataitem,_u));
+        }
+
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            car.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                car.IsEnabled = true;
+                return false;
+            });
+            Navigation.PushAsync(new BuyCar(_u));
         }
     }
 }

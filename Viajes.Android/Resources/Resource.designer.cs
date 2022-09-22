@@ -27817,7 +27817,10 @@ namespace Viajes.Droid
 			public const int user = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int visa = 2131165340;
+			public const int verify = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int visa = 2131165341;
 			
 			static Drawable()
 			{

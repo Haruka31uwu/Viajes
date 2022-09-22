@@ -4,16 +4,18 @@
              x:Class="Viajes.Views.Main.MainPages.Home"
              Visual="Material">
     <ContentPage.Content>
-        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="White" x:Name="lServices" ItemTapped="lServices_ItemTapped" HasUnevenRows="True">
+        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="Red" x:Name="lServices" ItemTapped="lServices_ItemTapped" HasUnevenRows="True" SelectionMode="None" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220">
+                            <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220" >
                                 <StackLayout >
                                     <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="150" VerticalOptions="Start"/>
+                                   
                                     <StackLayout Orientation="Horizontal">
-                                    
+                                        <Label Text="{Binding NameOfService}"/>
+                                        
                                     </StackLayout>  
                                 </StackLayout>
                             </Frame>

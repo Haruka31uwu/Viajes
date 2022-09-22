@@ -19,7 +19,7 @@ namespace Viajes.Views.Main
         {
             InitializeComponent();
             lbl.Text = u.Email;
-        
+            
             
         }
     }

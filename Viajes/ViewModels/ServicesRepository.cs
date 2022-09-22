@@ -50,6 +50,23 @@ namespace Viajes.ViewModels
             await f.Child("Services").OnceAsync<Services>();
 
             return allp.Where(a => a.NameOfService.ToLower().Contains(name.ToLower())).ToList();
+        }public async Task<string> UpdatePriority(string ids)
+        {
+            var allp = await GetallServices();
+            await f.Child("Services").OnceAsync<BuyCar>();
+            var l = allp.FirstOrDefault(a => a.IdOfService.Equals(ids));
+            string priority = (int.Parse(l.Priority) + 1).ToString();
+            return priority;
+           
+        }
+        public async Task UpdateRow(Services s)
+        {
+            var update = (await f.Child("Services").OnceAsync<Services>()).Where(a => a.Object.IdOfService == s.IdOfService).FirstOrDefault();
+            update.Object.Priority = await UpdatePriority(s.IdOfService);
+            await f.Child("Services").Child(update.Key).PutAsync(update.Object);
+            Debug.WriteLine("Exito");
+
+
         }
         public async Task<List<Services>> GetallServicesforPriority()
         {

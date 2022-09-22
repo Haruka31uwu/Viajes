@@ -35,6 +35,13 @@ namespace Viajes.Views.Main.MainPages
 
         private async void lServices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            lServices.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                lServices.IsEnabled = true;
+                return false;
+            });
             var dataitem =(Services) e.Item;
             bool answer = await DisplayAlert("Informacion", "Desea ver mas informacion", "Yes", "No");
             

@@ -9,7 +9,7 @@
             <Label x:Name="sn" HorizontalOptions="Center"/>
             <Label x:Name="des" HorizontalOptions="Center"/>
             <Label x:Name="dt" HorizontalOptions="Center"/>
-            <Button Text="Añadir al Carrito" Clicked="Button_Clicked"/>
+            <Button Text="Añadir al Carrito" Clicked="Button_Clicked" x:Name="bt1"/>
 
         </StackLayout>
     </ContentPage.Content>

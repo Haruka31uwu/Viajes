@@ -17,17 +17,20 @@ namespace Viajes.Views
         UsersRepository _user = new UsersRepository();
         public Login()
         {
-            InitializeComponent();
-            
+            InitializeComponent();   
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            
             string email = txtemail.Text;
             string password = txtpass.Text;
+            bt1.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(4), () =>
+            {
 
-            
+                bt1.IsEnabled = true;
+                return false;
+            });
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
@@ -37,15 +40,18 @@ namespace Viajes.Views
             {
                 try
                 {
+
                     string token = await _user.SignIn(email, password);
                     if (!string.IsNullOrEmpty(token))
                     {
                         var u =await _user.UserLogedData(email);
                         Debug.WriteLine(u.Email);
                        await Navigation.PushModalAsync(new Views.Main.MainPage(u));
+                       
                     }
                     else
                     {
+                        
                         //await DisplayAlert("Error", "SignUp Failed", "Ok");
                     }
                 }
@@ -55,20 +61,24 @@ namespace Viajes.Views
                         if (ex.Message.Contains("INVALID_PASSWORD") )
                         {
                             await DisplayAlert("Warning", "Password Incorrect", "Ok");
-                        }
+                            
+                        }if (ex.Message.Contains("INVALID_EMAIL")) {
+                            await DisplayAlert("Warning", "Invalid Email", "OK");
+                        } 
                         else
                         {
+
                             await DisplayAlert("Error", ex.Message, "Ok");
+
                         }
                     }
-
+                    
                 }
             }
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

@@ -25,6 +25,13 @@ namespace Viajes.Views
             
             string email = txtemail.Text;
             string pass = txtpass.Text;
+            bt1.IsEnabled = false;
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                bt1.IsEnabled = true;
+                return false;
+            });
             if (string.IsNullOrEmpty(email))
             {
                await DisplayAlert("Warning", "Please Enter your Email", "Cancel");
@@ -60,6 +67,10 @@ namespace Viajes.Views
                     if (ex.Message.Contains("EMAIL_EXIST"))
                     {
                         await DisplayAlert("Warning", "Email exist", "Ok");
+                    }
+                    if (ex.Message.Contains("INVALID_EMAIL"))
+                    {
+                        await DisplayAlert("Warning", "Invalid Email", "OK");
                     }
                     else
                     {
