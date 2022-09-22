@@ -6,7 +6,7 @@ x:Class="Viajes.Views.Main.MainPages.SearchPage"
 
     <ScrollView BackgroundColor="White">
         <Frame>
-                <ListView x:Name="ls" HasUnevenRows="True">
+                <ListView x:Name="ls" HasUnevenRows="True" ItemTapped="ls_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
