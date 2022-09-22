@@ -100,9 +100,16 @@ namespace Viajes.ViewModels
         {
 
             var todeletecar = (await f.Child("BuyCar").OnceAsync<BuyCar>()).Where(a => a.Object.PriceCar == 0).FirstOrDefault();
+            if (todeletecar == null)
+            {
+
+            }
+            else { 
                 await f.Child("BuyCar").Child(todeletecar.Key).DeleteAsync();       
             }
-        }       }
+        }
+    }       
+}
     
 
     

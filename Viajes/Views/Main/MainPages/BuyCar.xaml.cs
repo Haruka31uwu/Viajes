@@ -61,7 +61,7 @@ namespace Viajes.Views.Main.MainPages
             });
             bool ok = await DisplayAlert("Que Desea hacer?","Desea quitar del carrito o proceder con el pago?", "Comprar", "Borrar");
             int? index = null;
-            if (!ok)
+            if (ok==false)
             {
                 car = await cv.GetCarForId(_u.Id);
                 if (car != null)
@@ -93,15 +93,15 @@ namespace Viajes.Views.Main.MainPages
             }
             else
             {
-
-                List<BuyOrder> __bo;
-                __bo= new List<BuyOrder>();
+                Debug.WriteLine("UU");
+                List<BuyOrder?>? __bo=new List<BuyOrder?>();
+                
                 __bo = await bo.GetallOrder();
                 var  data = (Services)e.Item;
                 _bo = new BuyOrder
                 {
                     UserId = _u.Id,
-                    IdOrder = (__bo.Count + 1).ToString(),
+                    IdOrder = (__bo?.Count + 1).ToString(),
                     ServiceOrderElement = data,
                     PriceOrder = data.Price.ToString()
                     
@@ -132,10 +132,11 @@ namespace Viajes.Views.Main.MainPages
                     }
                     if (index != null)
                     {
-                        await bo.Save(_bo);
-                        await cv.DeleteFromCar(index, _u.Id);
-                        await cv.DeleteCar();
+                        await bo.Save(_bo); 
                         await sr.UpdateRow(data);
+                        await cv.DeleteFromCar(index, _u.Id);                   
+                        await cv.DeleteCar();
+                        
                         await DisplayAlert("Exito", "Compra  Realizada con exito", "Ok");
                         lCar.ItemsSource = await lista();
                     }

@@ -39,7 +39,7 @@ namespace Viajes.ViewModels
             return false;
 
         }
-        public async Task<List<BuyOrder>> GetallOrder()
+        public async Task<List<BuyOrder>?> GetallOrder()
         {
             return (await f.Child("BuyOrder").OnceAsync<BuyOrder>()).Select(item =>
              new BuyOrder

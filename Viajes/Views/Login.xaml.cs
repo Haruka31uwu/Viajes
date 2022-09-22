@@ -61,16 +61,24 @@ namespace Viajes.Views
                         if (ex.Message.Contains("INVALID_PASSWORD") )
                         {
                             await DisplayAlert("Warning", "Password Incorrect", "Ok");
-                            
-                        }if (ex.Message.Contains("INVALID_EMAIL")) {
-                            await DisplayAlert("Warning", "Invalid Email", "OK");
-                        } 
-                        else
-                        {
-
-                            await DisplayAlert("Error", ex.Message, "Ok");
 
                         }
+                        else if(ex.Message.Contains("INVALID_EMAIL")) {
+                            await DisplayAlert("Warning", "Invalid Email", "OK");
+                        }
+                        else if(ex.Message.Contains("MISSING_EMAIL"))
+                        {
+                            await DisplayAlert("Warning", "Blank Email", "OK");
+                        }
+                        else if (ex.Message.Contains("EMAIL_EXISTS"))
+                        {
+                            await DisplayAlert("Warning", "Email Exists", "OK");
+                        }
+                        else
+                        {
+                            await DisplayAlert("Error", ex.Message, "Ok");
+                        }
+
                     }
                     
                 }

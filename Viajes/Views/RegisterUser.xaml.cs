@@ -55,6 +55,7 @@ namespace Viajes.Views
                         Debug.WriteLine(isSaved);
 
                         await rep.Save(u);
+                        await DisplayAlert("Bienvenido", "Usuario Registrado con exito", "Ok");
                         await Navigation.PushAsync(new Login());
 
                     }
@@ -64,14 +65,22 @@ namespace Viajes.Views
                     }
                 }catch(Exception ex)
                 {
-                    if (ex.Message.Contains("EMAIL_EXIST"))
+                    if (ex.Message.Contains("EMAIL_EXISTS"))
                     {
                         await DisplayAlert("Warning", "Email exist", "Ok");
                     }
-                    if (ex.Message.Contains("INVALID_EMAIL"))
+                    else if (ex.Message.Contains("INVALID_EMAIL"))
                     {
                         await DisplayAlert("Warning", "Invalid Email", "OK");
                     }
+                    else if (ex.Message.Contains("MISSING_EMAIL"))
+                    {
+                        await DisplayAlert("Warning", "Blank Email", "OK");
+                    }else if (ex.Message.Contains("EMAIL_NOT_FOUND")) 
+                    {
+                        await DisplayAlert("Warning", "Email not Exists", "OK");
+                    }
+                    
                     else
                     {
                         await DisplayAlert("Error", ex.Message, "Ok");
