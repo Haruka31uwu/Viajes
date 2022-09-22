@@ -8,11 +8,47 @@
              >
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Image x:Name="img" HeightRequest="300"/>
-            <Label x:Name="sn" HorizontalOptions="Center"/>
-            <Label x:Name="des" HorizontalOptions="Center"/>
-            <Label x:Name="dt" HorizontalOptions="Center"/>
-            <Button Text="Añadir al Carrito" Clicked="Button_Clicked" x:Name="bt1"/>
+           <StackLayout Padding="35">
+
+            
+            <Label Text=""></Label>
+            <Label Text=""></Label>
+            <Label Text=""></Label>
+            
+            <Image x:Name="img" HeightRequest="200" WidthRequest="250"/>
+
+            <Label x:Name="sn" HorizontalOptions="Center"
+                   FontAttributes="Bold" 
+                   FontFamily="timesbd"
+                   TextColor="Black"
+                   FontSize="18"
+                   Padding="2"/>
+            
+            <Label x:Name="des" HorizontalOptions="Center"
+                   FontAttributes="Bold" 
+                   FontFamily="timesbd"
+                   TextColor="Black"
+                   FontSize="18"
+                   Padding="2"/>
+            
+            <Label x:Name="dt" HorizontalOptions="Center"
+                   FontAttributes="Bold" 
+                   FontFamily="timesbd"
+                   TextColor="Black"
+                   FontSize="18"
+                   Padding="2"/>
+
+            <Button Text="Añadir al Carrito" Clicked="Button_Clicked"
+                    FontFamily="timesbd"
+                    FontSize="25"
+                    FontAttributes="Bold"
+                    BorderColor="#D86F22"
+                    TextColor="DarkRed"
+                    BorderWidth="5"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    Margin="5"
+                    X:Name="bt1"/>
 
         </StackLayout>
     </ContentPage.Content>

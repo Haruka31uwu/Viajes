@@ -131,6 +131,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\twitter.png" />
-  </ItemGroup>
+    <ItemGroup>
+
+      <AndroidResource Include="Resources\drawable\marcopage.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <AndroidResource Include="Resources\drawable\marcoacuatico.png" />
+
+      <AndroidResource Include="Resources\drawable\SplashPresent.xml" />
+    
+    </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

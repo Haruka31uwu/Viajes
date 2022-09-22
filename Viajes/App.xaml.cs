@@ -13,11 +13,16 @@ namespace Viajes
 {
     public partial class App : Application
     {
+        public UsersRepository ur;
+
+
         public App()
         {
-            InitializeComponent();
+          InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new MainPage());
+
+
             //MainPage = new MainPage();
         }
         protected override void OnStart()
@@ -33,5 +38,6 @@ namespace Viajes
         protected override void OnResume()
         {
         }
+
     }
 }
