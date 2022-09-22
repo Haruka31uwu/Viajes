@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation = "vertical">
+  <item>
+    <color android:color ="@color/colorSplash"/>
+  </item>
+  <item android:drawable ="@drawable/dibujotravel"
+    android:gravity ="center"
+        android:width ="500px"
+        android:height ="500px">
+  </item>
+
+</layer-list>

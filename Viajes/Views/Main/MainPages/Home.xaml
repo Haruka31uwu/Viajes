@@ -2,20 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Main.MainPages.Home"
-             Visual="Material">
+             Visual="Material"
+             BackgroundColor="AliceBlue">
     <ContentPage.Content>
-        <ListView RowHeight="300" SeparatorVisibility="None" BackgroundColor="Red" x:Name="lServices" ItemTapped="lServices_ItemTapped" HasUnevenRows="True" SelectionMode="None" >
+        <ListView RowHeight="300" SelectionMode="None" SeparatorVisibility="None" BackgroundColor="White" x:Name="lServices" ItemTapped="lServices_ItemTapped" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Frame Margin="10" BackgroundColor="Transparent" HeightRequest="220" >
-                                <StackLayout >
+                            <Frame Margin="15" BackgroundColor="#E1F2F3" HeightRequest="220" CornerRadius="20" BorderColor="Black" Padding="8">
+                                <StackLayout>
+                                    <Label Text="{Binding NameOfService}"
+                                           TextColor="DarkRed"
+                                           HorizontalOptions="CenterAndExpand"
+                                           FontFamily="timesbd"
+                                           FontSize="27"
+                                           FontAttributes="Bold"/>
+                                    
                                     <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="150" VerticalOptions="Start"/>
-                                   
+                                    
+                                    <Label Text="{Binding Data}"
+                                           FontSize="18"
+                                           FontFamily="timesbd"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding NameOfService}"/>
-                                        
+                                    
                                     </StackLayout>  
                                 </StackLayout>
                             </Frame>

@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viajes.Views.Main.MainPageDetail"
-             Title="Bienvenido">
-  <StackLayout Padding="10">
-        <Label Text="" x:Name="lbl"/>
+             BackgroundImageSource="marcoviaje"
+             Title="Página Principal">
+    <StackLayout Padding="10" Margin="50" VerticalOptions="Center">
+        <Label Text="Bienvenido a PeruViajes" HorizontalOptions="Center" FontSize="Title" TextColor="Black"/>
+        <Label Text="" x:Name="lbl" HorizontalTextAlignment="Center" FontSize="Body"/>
+        <Label Text="PeruViajes es una empresa dedicada a los viajes tanto nacionales como internacionales en los que podrás visualizar diferentes tipos de lugares turísticos para visitar"
+               FontSize="Medium" HorizontalTextAlignment="Center"/>
+
     </StackLayout>
 </ContentPage>
